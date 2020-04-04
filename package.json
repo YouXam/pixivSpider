@@ -1,0 +1,19 @@
+{
+  "name": "pixiv",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.0.2",
+    "eventproxy": "^1.0.0",
+    "express": "^4.17.1",
+    "mongodb": "^3.5.5",
+    "superagent": "^5.2.2",
+    "webp-converter": "^2.2.3"
+  }
+}

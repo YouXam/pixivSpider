@@ -1,0 +1,60 @@
+<html lang="zh">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sscaffold-css@0.1.1/sscaffold.min.css"
+        integrity="sha256-tNrNp6fPTVnhpywTjgNV4jCx6W9d1wuALpwVmAQEYcs=" crossorigin="anonymous">
+    <style>
+        .img{
+            display:inline;
+            max-height:80vh;
+            width:auto;
+        }
+        .hr {
+            border-top: .1rem solid #a0a8b1;
+        }
+    </style>
+    <title><%= date %> 排行榜 - 第 <%= page %> 页</title>
+</head>
+
+<body>
+    <h1 style="text-align:center;font-size:50px;"><%= date %> 排行榜 - 第 <%= page %> 页</h1>
+    <div style="width:100%;text-align:center;font-size:200%;margin:20px;">
+        <a href="/">主页</a>
+    </div>
+    <div style="width:100%;text-align:center;font-size:200%;margin:20px;">
+        第
+        <% for(let i=1;i<=Math.ceil(totol/10);i++){ %>
+        <% if(i==page){ %>
+        <a style="color:red;" href="/list/<%= date %>/<%= i %>"><%= i %></a>
+        <% } else { %>
+        <a href="/list/<%= date %>/<%= i %>"><%= i %></a>
+        <% } %>
+        <% } %>
+        页
+    </div>
+    <div style="text-align:center;width:80%;margin-left:10%;">
+        <hr class="hr" />
+        <% for(let i of data){ %>
+        <p style="font-size:150%;"><%= i.title %> | <a href="https://www.pixiv.net/artworks/<%= i.aid %>">源网址</a> | <a
+                href="/original/<%= date %>/<%= i.aid %>">原图(点击<%= i.downCount %> 次)</a></p>
+        <div style="max-height:80vh;">
+        <img class="img" src="/<%= i.path %>/<%= i.aid %>.webp" />
+        </div>
+        <hr class="hr" />
+        <% } %>
+    </div>
+    <div style="width:100%;text-align:center;font-size:200%;margin:20px;">
+        第
+        <% for(let i=1;i<=Math.ceil(totol/10);i++){ %>
+        <% if(i==page){ %>
+        <a style="color:red;" href="/list/<%= date %>/<%= i %>"><%= i %></a>
+        <% } else { %>
+        <a href="/list/<%= date %>/<%= i %>"><%= i %></a>
+        <% } %>
+        <% } %>
+        页
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<html lang="zh">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sscaffold-css@0.1.1/sscaffold.min.css"
+        integrity="sha256-tNrNp6fPTVnhpywTjgNV4jCx6W9d1wuALpwVmAQEYcs=" crossorigin="anonymous">
+    <title>主页</title>
+</head>
+
+<body>
+    <h1 style="text-align:center;font-size:50px;">主页</h1>
+    <div style="text-align:center;font-size:150%;margin:15px;"><a href="/logs">日志</a></div>
+    <div style="text-align:center;font-size:150%;margin:15px;"><a href="/picked">精选</a></div>
+    <% if(data.length){ %>
+    <ul style="width:100%;text-align:center;font-size:200%;padding:0px;">
+        <% for(let i of data){ %>
+        <li style="list-style-type:none;margin:20px;"><a href="/list/<%= i.date %>"><%= i.date %></a></li>
+        <% } %>
+    </ul>
+    <% } else { %>
+        <p style="text-align:center;font-size:200%;margin:20px;">
+        无数据
+        </p>  
+    <% } %>
+    
+</body>
+
+</html>
